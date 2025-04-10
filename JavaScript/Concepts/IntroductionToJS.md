@@ -61,3 +61,6 @@ console.log(eval("2 + 2") === eval("4"));
 console.log(eval("2 + 2") === eval(new String("2 + 2")));
 // Expected output: false
 ```
+Here, the script can be expression, statement, sequence of statements. The expression can include variables and properties of existing object. It will be parsed as a script. So `import` declaration is not allowed. `Import` only works with modules.   
+If the completion value is empty, then `undefined` is returned.   
+Eval function is a property function of global object. Using eval function, we can create script/code dynamically.

@@ -1,10 +1,10 @@
 Important resources link:   
 https://github.com/getify/You-Dont-Know-JS
 
-https://www.w3schools.com/js/
-https://javascript.info/
-https://exploringjs.com/
-https://eloquentjavascript.net/
-https://www.youtube.com/watch?v=hdI2bqOjy3c&t=2s
-https://www.youtube.com/watch?v=P7t13SGytRk&t=22s
+https://www.w3schools.com/js/  
+https://javascript.info/   
+https://exploringjs.com/   
+https://eloquentjavascript.net/   
+https://www.youtube.com/watch?v=hdI2bqOjy3c&t=2s   
+https://www.youtube.com/watch?v=P7t13SGytRk&t=22s   
 https://app.daily.dev/onboarding?ref=roadmapsh&after_auth=%2Ftags%2Fjavascript
