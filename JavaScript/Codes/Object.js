@@ -9,14 +9,14 @@
 // }
 
 // copnstructor function
-function Person(first, last, age) { 
-    this.firstName = first;
-    this.lastName = last;
-    this.age = age;
-    this.fullName = function() {
-        return this.firstName + ' ' + this.lastName;
-    };
-  }
+// function Person(first, last, age) { 
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.age = age;
+//     this.fullName = function() {
+//         return this.firstName + ' ' + this.lastName;
+//     };
+//   }
 
 const shifa = new Person('shifat jahan', 'shifa', 23);
 const jashim = new Person('jashim', 'uddin', 25);
@@ -29,3 +29,5 @@ console.log(shifa.country); // bd
 console.log(jashim.country); // undefined
 
 console.dir(jashim.__proto__.__proto__.__proto__)
+
+

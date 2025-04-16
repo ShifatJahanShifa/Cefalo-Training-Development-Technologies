@@ -4,3 +4,4 @@
 4. property enumeration bujhi nai. 
 5. Which functions return array as return value? 
 6. why String is safer than toString()
+7. 
