@@ -32,7 +32,19 @@
 
 // global scope; weird
 
-{
-    d=0;
+// {
+//     d=0;
+// }
+// console.log(d); // 0`
+
+function name() {
+    let cool=2;
+    if(1)
+    {
+        const cool=9;
+    }    
+    console.log(cool);
+    
 }
-console.log(d); // 0`
+
+name()
