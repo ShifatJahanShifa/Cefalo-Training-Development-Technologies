@@ -1,9 +1,13 @@
 // console.log(x)
 
-let x;
+// let x;
 
-console.log(x)
+// console.log(x)
 
-x=7
+// x=7
 
-console.log(x) // 7
+// console.log(x) // 7  
+
+// a=4
+
+// const a;
