@@ -11,4 +11,4 @@ in boject, i could not do the iteration using `for...of` loop. But what i saw in
 ## SET
 characteristics: 
 1. unique.
-2. elements are in no particular order.
+2. elements are in no particular order. 
