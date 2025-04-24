@@ -1,0 +1,2 @@
+// this keyword in global space refers to window object. this is when the js is running inside browser.
+// according to the env, the global object is different. in browser it is window. in nodejs it is global.

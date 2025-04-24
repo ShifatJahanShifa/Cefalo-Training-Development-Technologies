@@ -10,3 +10,5 @@
 6. why String is safer than toString()
 7. Trailing commas
 >>>>>>> 9c3c902fa4992d4d263e97754816e616e62d9ce4
+8. polyfill
+9. function currying
