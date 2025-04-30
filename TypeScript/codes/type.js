@@ -1,18 +1,34 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// function check(a: number) {
-//     console.log(a);
-//     return 0;
+// type voidFunc=()=> void
+// // function check(a: number) {
+// //     console.log(a);
+// //     return 0;
+// // }
+// // let res=check(2)
+// // console.log(res, typeof res);
+// const f1: voidFunc = () => {
+//     return true;
 // }
-// let res=check(2)
-// console.log(res, typeof res);
-var f1 = function () {
-    return true;
-};
-var inv = f1();
-console.log(typeof inv, inv);
-function greet(person) {
-    console.log('hello, ' + person.name);
-}
-var user = { name: 'shifa', age: 23 };
-greet(user);
+// const inv=f1()
+// console.log(typeof inv, inv);
+// // let a: void
+// // // let b: void=undefined
+// // // // let c: void=void
+// // // let a: void,b: void
+// // let c: number=9
+// // console.log(typeof a,typeof c);
+// interface Person {
+//     name: string,
+//     age: number
+// }
+// function greet(person: Person) 
+// {
+//     console.log('hello, '+person.name);
+// }
+// let user: Person={name: 'shifa', age: 23}
+// greet(user)
+var a;
+a = 9;
+a = 'df';
+console.log(a);
