@@ -25,3 +25,21 @@ TypeScript is superset of javascript. It adds optional type annotation for us. T
 
 
 N.B: if no type is specified, then it is any type.
+
+## Comparison between javascript and typescript
+1. javascript is dynamically typed language whereas typescript is statically typed language.
+2. javascript checks error at runtime whereas typescript checks error at compile time.
+3. typescript's use of statical type, we can gain some IDE tooling support. Such as- smart code suggestion, code browsing, code restructuring which are not as comprehensive as in javascript.
+4. typescript provides backing for oop elements like class, inheritance, interface, access modifier. whereas in javacsript we rely on prototype and some other means.
+
+> To sum up, TypeScript improves JavaScript by providing the resources needed to create applications securely and with reduced mistakes.  
+
+
+## Key Features of Typescript
+1. Static typing
+2. Type Inference
+3. Enhanced tooling support
+4. Easy access to javascript libraries (a.d.ts)
+5. Access to advanced OOP features. 
+
+N.B: ts and js are interoperable.
