@@ -3,3 +3,4 @@
 3. https://www.typescriptlang.org/docs/
 4. https://www.typescriptlang.org/play/?#
 5. https://www.typescriptlang.org/tsconfig/
+6. https://learn.microsoft.com/en-us/archive/blogs/ericlippert/why-cant-i-access-a-protected-member-from-a-derived-class

@@ -19,7 +19,13 @@
 
 'use strict'
 
-let str='shifa'
-str.length=9
-console.log(str.length);
+// let str='shifa'
+// str.length=9
+// console.log(str.length);
 
+function fullName(f,m='',l)
+{
+    console.log(f+' '+m+' '+l);
+}
+
+fullName('shifat','shifa')

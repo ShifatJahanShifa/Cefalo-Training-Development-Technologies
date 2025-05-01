@@ -28,7 +28,43 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // }
 // let user: Person={name: 'shifa', age: 23}
 // greet(user)
-var a;
-a = 9;
-a = 'df';
-console.log(a);
+// let a
+// a=9
+// a='df'
+// console.log(a);
+// function f(name: any)
+// {
+//     console.log(name.toUpperCase())
+// }
+// f(9)
+// function f(name: unknown)
+// {
+//     if(name && typeof name === 'string')
+//     console.log(name.toUpperCase())
+// }
+// f(9)
+// type Vowel='a'|'e'|'o'|'u'|'i'
+// function func(stat: Vowel) {
+//     switch (stat) {
+//         case 'a':
+//             break;
+//         case 'i':
+//             break;
+//         case 'e':
+//             break;
+//         case 'o':
+//             break;
+//         case 'u':
+//             break
+//         default:
+//             let c: never=stat
+//             break;
+//     }
+// }
+var s = 8;
+var a = 'hello';
+console.log(typeof a);
+var ob = { a: 9 };
+var z = { text: "hello" };
+var arr = [9, 0];
+// arr.push(7)

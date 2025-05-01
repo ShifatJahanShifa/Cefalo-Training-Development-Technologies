@@ -49,7 +49,12 @@ export {}
 //   console.log(StatusCode[200])
   
 
-const enum Status {
-    ok=200,
-    success=ok
+// const enum Status {
+//     ok=200,
+//     success=ok
+// }
+
+declare enum myEnum {
+    a=9,
+    b
 }

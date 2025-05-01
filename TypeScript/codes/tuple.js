@@ -1,3 +1,13 @@
 var mytuple = ['tuple', 1];
 console.log(mytuple[0]);
 console.log(mytuple[1]);
+mytuple.push(8);
+console.log(mytuple);
+var myarray = [1, 3, 's', 4];
+myarray.push(3);
+console.log(myarray.length);
+var array = ['s', 1];
+array.push('d');
+array.push('d');
+array.push(9);
+console.log(array);
