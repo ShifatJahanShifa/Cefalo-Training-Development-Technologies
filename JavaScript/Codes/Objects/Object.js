@@ -108,13 +108,21 @@ const obj={
 // console.log( isEmpty(schedule) ); // true
 
 
-function Person(first,second,age) {
-    this.firstName=first;
-    this.lastName=second;
-    this.age=age;    
-}
+// function Person(first,second,age) {
+//     this.firstName=first;
+//     this.lastName=second;
+//     this.age=age;    
+// }
 
-const person1=new Person('shifat jahan','shifa',23)
-console.log(person1);
-const person2=new Person('rifat jahan','rifa',23)
-console.log(person2);
+// const person1=new Person('shifat jahan','shifa',23)
+// console.log(person1);
+// const person2=new Person('rifat jahan','rifa',23)
+// console.log(person2);
+
+const ob={
+    a: 2,
+    b: 3,
+    23: 'd',
+    4: 's'
+}
+console.log(ob)

@@ -147,3 +147,13 @@ We can now safely run the code without any runtime error.
 `as` type assertion
 `any` 
 `as const` const assertion, no widening of type, array becomes readonly tuple, readonly object. 
+
+`Type compatibility` means two types are same type if their structure are same. The structural typing based on the shape or members of the type, not based on the name of the type. 
+There are two types of compatibility. 
+1. subtype compatibility
+2. assignment compaitibility
+assignment compatibility extends subtype compatibility. assignment compatibility has any to and from feature and enum to number conversion. 
+
+## combining types 
+We can combine two or more types using union operator `|` into one type which can tell all the possible types.
+`union` type is useful actually. suppose, two types exist. user, admin. i am now user. one day i may become admin. We may need to narrow down the union type.

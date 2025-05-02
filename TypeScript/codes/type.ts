@@ -80,11 +80,155 @@ export {}
 //     }
 // }
 
-const s=8 as unknown as string
+// const s=8 as unknown as string
 
-let a='hello' as const
-console.log(typeof a);
-const ob={a:9} as const
-let z = { text: "hello" } as const;
-let arr=[9,0] as const
-// arr.push(7)
+// let a='hello' as const
+// console.log(typeof a);
+// const ob={a:9} as const
+// let z = { text: "hello" } as const;
+// let arr=[9,0] as const
+// // arr.push(7)
+
+// let name='jpohn'
+// name='john'
+// name=9  
+
+// function convert(a) 
+// {
+//     a.toUpperCase()
+//     a.toFixed()
+// }
+
+// convert(3)
+
+// interface Pet {
+// name: string;
+// }
+// class Dog {
+//     name: string;
+//     age: number
+// }
+// let pet: Pet;
+// // OK, because of structural typing
+// pet = new Dog();
+// pet.age 
+
+// let a: string='5'
+// let b: string='y'
+// a=b;
+
+
+// let ob={ a: 8}
+// class cl {
+//     a: string
+// }
+
+// // ob=new cl()
+
+// let s: any;
+// let c: any 
+// s=c
+
+// let a: ( string | number )[]=[9,0,'k']
+// console.log(typeof a);
+// type inputType=(string | number)
+
+// function sum(a: inputType, b: number)
+// {
+//     //
+// }
+// sum(4,8)
+
+// type Person={
+//     name: string,
+//     age: number,
+//     shout: ()=> void,
+//     type: 'person'
+// }
+
+// const shifa: Person={
+//     name: 'SHIFA',
+//     age: 23
+// }
+
+// modifying this
+// type Person={
+//     [any: string]: string | number
+// }
+
+// let person: Person={
+//     name: 'shifa',
+//     1301: 'roll',
+//     true: 1
+// }
+
+// // console.log(person)
+
+// type Dog={
+//     name: string,
+//     age: number,
+//     bark: ()=> void,
+//     type: 'dog'
+// }
+
+// function makeNoise(dogOrPerson: Dog | Person): void 
+// {
+//     switch(dogOrPerson.type)
+//     {
+//         case "dog":
+//             dogOrPerson.bark()
+//             break;
+//         case "person":
+//             dogOrPerson.shout()
+//             break;
+//     }
+// }  
+
+
+// let seatAllotment: 'aisle' | 'middle' | 'edge'
+// // seatAllotment=''
+
+// interface face1 {
+//     a: string,
+//     b: number
+// }
+
+// interface face2 {
+//     // a: number,
+//     c: string
+// }
+
+// type newType = face1 & face2 
+
+// // let newOb: newType
+
+// // console.log(typeof newOb);
+
+
+// let newOb: newType={
+//     // t: 'd',
+//     a: 'r',
+//     b: 5,
+//     c: 'sp'
+// }
+
+// console.log(newOb);
+// console.log(typeof newOb);
+
+
+// type f=number
+// type s=string
+// type n=f&s 
+// let b: n
+// let v: n
+// v=b
+// console.log();  
+
+type ob={
+    a: number
+}
+type ob2={
+    b: string
+}
+
+type ntype=ob & ob2
