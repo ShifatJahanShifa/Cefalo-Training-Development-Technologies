@@ -73,9 +73,10 @@ export {}
 //         case 'o':
 //             break;
 //         case 'u':
+//             let r=stat
 //             break
 //         default:
-//             let c: never=stat
+//             let c=stat
 //             break;
 //     }
 // }
@@ -224,11 +225,73 @@ export {}
 // v=b
 // console.log();  
 
-type ob={
-    a: number
-}
-type ob2={
-    b: string
+// type ob={
+//     a: number
+// }
+// type ob2={
+//     b: string
+// }
+
+// type ntype=ob & ob2
+
+
+// ------------------------------------------------------- keyof operator 
+// example 01
+// interface Person {
+//     name: string,
+//     age: number,
+//     location: string
+// }
+
+// type keys=keyof Person // union of keys = 'name' | 'age' | 'location'
+ 
+
+// // example 02
+// type obj={
+//     name: 's',
+//     age: 23,
+// }
+
+// type obt=keyof obj
+
+// // example 03
+// // type value={
+// //     [n: number]: number,    // number index signature
+// //     [e: string]: number
+// // }
+
+// // type valuet=keyof value
+// // let v: valuet='n'
+// // let vv: valuet=7
+// // console.log(v, vv)
+// // console.log(typeof v, typeof vv);
+
+
+// // example 04
+// // type Arrayish = { [n: number]: unknown };
+// // type A = keyof Arrayish;
+// // let v: A=7
+
+// // type Mapish = { [k: string]: boolean };
+// // type M = keyof Mapish;
+// // let vv: M=6
+
+// // narrowing 
+// function check(value: number | string)
+// {
+//     console.log(typeof value);
+// }
+
+// check(8)  
+
+// ------------------------------------ type alias ------------------------------ 
+
+type User={
+    name: string,
+    age: number
 }
 
-type ntype=ob & ob2
+let user: User={
+    name: 's',
+    age: 29
+}

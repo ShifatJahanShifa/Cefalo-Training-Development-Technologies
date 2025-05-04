@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var b;
-var v;
-v = b;
-console.log();
+var user = {
+    name: 's',
+    age: 29
+};
