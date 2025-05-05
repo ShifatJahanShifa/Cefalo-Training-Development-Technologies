@@ -286,12 +286,26 @@ export {}
 
 // ------------------------------------ type alias ------------------------------ 
 
-type User={
-    name: string,
-    age: number
-}
+// type User={
+//     name: string,
+//     age: number
+// }
 
-let user: User={
-    name: 's',
-    age: 29
-}
+// let user: User={
+//     name: 's',
+//     age: 29
+// }
+
+
+// type User={
+//     name: string
+// }
+
+// type Person={
+//     name: number
+// }
+
+// type Comb=User & Person
+// let p: Comb= {
+//     name: 
+// }

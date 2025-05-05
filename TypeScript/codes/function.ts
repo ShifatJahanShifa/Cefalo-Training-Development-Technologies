@@ -77,13 +77,27 @@ export {}
 // console.log(add('hello','world'));
 
 
-// never
-function fn(x: string | number) {
-    if (typeof x === "string") {
-      // do something
-    } else if (typeof x === "number") {
-      // do something else
-    } else {
-      x; // has type 'never'!
-    }
-  }
+// // never
+// function fn(x: string | number) {
+//     if (typeof x === "string") {
+//       // do something
+//     } else if (typeof x === "number") {
+//       // do something else
+//     } else {
+//       x; // has type 'never'!
+//     }
+  // }  
+
+
+type voidFunc = () => void;
+ 
+const f1: voidFunc = () => {
+  return true;
+};
+
+const v1 = f1();
+if(typeof v1) 
+{
+  console.log('h');
+  
+}

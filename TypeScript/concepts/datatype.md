@@ -29,7 +29,7 @@ enum Position {
 here, the members considered to be the constant enum members are: 
 1. auto incremented
 2. resolve at compile time
-3. member which resolveed by other constant member
+3. member which resolved by other constant member
 4. assigned constant value
 
 Now, string enum. it has subtle runtime differences with numeric enum.
@@ -127,7 +127,7 @@ function f(name: any)
 
 f(9)
 ```
-It will give me runtime error. It was introduced with the intention to gradually migrate from js to ts code. To solve this, we have Unknown type introduced by ts 3.0.
+It will give me runtime error. It was introduced with the intention to gradually migrate from js codebase to ts code. To solve this, we have Unknown type introduced by ts 3.0.
 
 **Unknown** By using unknown type, typescript will enforce to narrow down the type based on control flow analysis. 
 ```ts

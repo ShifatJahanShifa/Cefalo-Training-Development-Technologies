@@ -129,12 +129,21 @@ export {}
 
 // ---------------------------- interface -----------------------
 
-interface User {
-    name: string,
-    age: number
-}
+// interface User {
+//     name: string,
+//     age: number
+// }
 
-let user: User={
-    name: 's',
-    age: 29
-}
+// let user: User={
+//     name: 's',
+//     age: 29
+// }
+
+// interface User {
+//     name: string
+// }
+
+// interface Person extends User {
+//     name: number
+// }
+
