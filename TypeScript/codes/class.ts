@@ -240,22 +240,68 @@ export {}
 
 // ------------------------------------ example 14, private field ------------------------------
 
+class Box {
+    #height: number=23
+    weight: number=34
+
+    get height(): number 
+    {
+      return this.#height
+    }
+}
+
+let box: Box=new Box()
+console.log(box.weight);
+
+let box2: Box=new Box()
+// console.log(box)
+
+  // demo 2
+
 // class Box {
-//     #height: number=23
+//     private height: number=23
 //     weight: number=34
 // }
 
 // let box: Box=new Box()
 // console.log(box.weight);
-// console.log(box)
+// console.log(box['height'])
 
-  // demo 2
+// ------------------------------------- example 15: static ----------------------------
+// class Foo {
+//   static #count = 0;
 
-class Box {
-    private height: number=23
-    weight: number=34
+//   get count() {
+//       return Foo.#count;
+//   }
+
+//   static {
+//       try {
+//           const lastInstances: number = 3
+//           Foo.#count += lastInstances;
+//       }
+//       catch {}
+//   }
+// }
+
+
+
+// ----------------------------------- example: 16 abstract class ----------------------------------
+abstract class Point {
+  abstract getPoint(): number
+
+  show(): void 
+  {
+    console.log('nothing')
+  }
 }
 
-let box: Box=new Box()
-console.log(box.weight);
-console.log(box['height'])
+
+class Conc extends Point {
+  getPoint(): number {
+    return 4
+  }
+}
+
+let d: Point=new Conc()
+console.log(d.getPoint())

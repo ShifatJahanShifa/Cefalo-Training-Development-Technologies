@@ -1,3 +1,26 @@
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
+var _Box_height;
+Object.defineProperty(exports, "__esModule", { value: true });
 // example 1
 // class Car {
 //     name: string
@@ -177,21 +200,65 @@
 //   }
 //   const obj = new Base();
 // ------------------------------------ example 14, private field ------------------------------
+var Box = /** @class */ (function () {
+    function Box() {
+        _Box_height.set(this, 23);
+        this.weight = 34;
+    }
+    Object.defineProperty(Box.prototype, "height", {
+        get: function () {
+            return __classPrivateFieldGet(this, _Box_height, "f");
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Box;
+}());
+_Box_height = new WeakMap();
+var box = new Box();
+console.log(box.weight);
+var box2 = new Box();
+// console.log(box)
+// demo 2
 // class Box {
-//     #height: number=23
+//     private height: number=23
 //     weight: number=34
 // }
 // let box: Box=new Box()
 // console.log(box.weight);
-// console.log(box)
-// demo 2
-class Box {
-    constructor() {
-        this.height = 23;
-        this.weight = 34;
+// console.log(box['height'])
+// ------------------------------------- example 15: static ----------------------------
+// class Foo {
+//   static #count = 0;
+//   get count() {
+//       return Foo.#count;
+//   }
+//   static {
+//       try {
+//           const lastInstances: number = 3
+//           Foo.#count += lastInstances;
+//       }
+//       catch {}
+//   }
+// }
+// ----------------------------------- example: 16 abstract class ----------------------------------
+var Point = /** @class */ (function () {
+    function Point() {
     }
-}
-let box = new Box();
-console.log(box.weight);
-console.log(box['height']);
-export {};
+    Point.prototype.show = function () {
+        console.log('nothing');
+    };
+    return Point;
+}());
+var Conc = /** @class */ (function (_super) {
+    __extends(Conc, _super);
+    function Conc() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Conc.prototype.getPoint = function () {
+        return 4;
+    };
+    return Conc;
+}(Point));
+var d = new Conc();
+console.log(d.getPoint());
