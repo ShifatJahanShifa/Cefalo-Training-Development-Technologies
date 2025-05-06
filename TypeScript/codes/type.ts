@@ -309,3 +309,55 @@ export {}
 // let p: Comb= {
 //     name: 
 // }
+
+// -------------------------------------------- type predicate ----------------------------------
+
+class Animal {
+    name: string;
+    species: string;
+
+    constructor(name: string, species: string) {
+        this.name = name;
+        this.species = species;
+    }
+
+    move() {
+        console.log("Animal is moving");
+    }
+}
+
+class Cat extends Animal {
+    walk() {
+        console.log("Cat is walking...");
+    }
+}
+
+class Bird extends Animal {
+    fly() {
+        console.log("Bird is flying...");
+    }
+}
+
+// const isCat = (animal: Animal): animal is Cat => {
+//     return animal instanceof Cat;
+// };
+
+const isCat = (animal: Animal): animal is Cat => {
+    return animal instanceof Cat;
+};
+
+const isBird = (animal: Animal): animal is Bird =>{
+    return animal instanceof Bird;
+};
+
+
+const handleAnimal = (animal: Animal) => {
+    if (isCat(animal)) {
+        animal.walk(); // No error
+    } else if (isBird(animal)) {
+        animal.fly(); // No error
+    } else {
+        animal.move();
+    }
+};
+
