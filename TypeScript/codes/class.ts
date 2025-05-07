@@ -287,21 +287,22 @@ let box2: Box=new Box()
 
 
 // ----------------------------------- example: 16 abstract class ----------------------------------
-abstract class Point {
-  abstract getPoint(): number
+// abstract class Point {
+//   abstract getPoint(): number
 
-  show(): void 
-  {
-    console.log('nothing')
-  }
-}
+//   show(): void 
+//   {
+//     console.log('nothing')
+//   }
+// }
 
 
-class Conc extends Point {
-  getPoint(): number {
-    return 4
-  }
-}
+// class Conc extends Point {
+//   getPoint(): number {
+//     return 4
+//   }
+// }
 
-let d: Point=new Conc()
-console.log(d.getPoint())
+// let d: Point=new Conc()
+// console.log(d.getPoint())
+

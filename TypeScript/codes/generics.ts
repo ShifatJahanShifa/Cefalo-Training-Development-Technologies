@@ -15,6 +15,8 @@ export {}
 // console.log(array);
 
 
+
+
 // ------------------------------------------------ need to support string array
 // function getFirstElement(array: any)
 // {
