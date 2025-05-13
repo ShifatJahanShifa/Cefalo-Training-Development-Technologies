@@ -49,7 +49,7 @@
 
 // fethc api 
 
-API_URL='https://api.github.com/users/ShifatJahanShifa11' 
+API_URL='https://api.github.com/users/ShifatJahanShifa' 
 
 async function handlePromise() {
     try{

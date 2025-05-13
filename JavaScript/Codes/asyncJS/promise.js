@@ -9,10 +9,10 @@ createOrder(cart)
     console.log(orderId)
     return orderId;
 })
-.catch(function(err){  // when failure occurs
-    console.log(err.message);
+// .catch(function(err){  // when failure occurs
+//     console.log(err.message);
     
-})
+// })
 .then(function(orderId){
     return proceedToPayment(orderId)
 })
