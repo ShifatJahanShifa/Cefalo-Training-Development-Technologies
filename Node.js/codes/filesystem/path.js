@@ -21,7 +21,9 @@ const filePath='C:\\Users\\cefalo\\Desktop\\Cefalo-Training-Development-Technolo
 
 // console.log(path.normalize('/users/joe/..//test.txt'));  
 
-console.log(path.normalize('/a/b/../c/./d.txt'));
+console.log(path.normalize('/a/b/../c/./d.txt')); 
+console.log('dffd');
+
 
 
 

@@ -9,3 +9,5 @@ const process=require('process')
 process.stdout.write('hello')
 process.stdout.write('world')
 
+// npx nodemon  --watch --watch-path=. .\dir.js --ignore bb.txt
+//  node  --watch --watch-path=. .\dir.js --ignore bb.txt  
