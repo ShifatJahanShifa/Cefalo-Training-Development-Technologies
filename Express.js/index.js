@@ -1,10 +1,12 @@
 import express from 'express'
 import { startups } from './data.js'
 
+
 const PORT=8000  // i need a port where i will listen to.
 
 const app=express()              // this is a variable that will hold the app. also it will hold an instance of express
 
+const apiRouter=express.Router()   // creates an instance of express router
 
 const celebrity={
     type: 'action hero',
@@ -151,4 +153,30 @@ app.get('/api',(req,res)=>{
 app.get('/api/crypto-name/:crypto',(req,res)=>{
     console.log(req.params)
     res.json()
+})
+
+// using path param
+// app.get('/api/:category/:type',(req,res)=>{
+//     console.log(req.params)
+//     res.json()
+// })
+
+
+app.get('/api/:field/:term',(req,res)=>{
+  let filteredData=startups
+  
+  let { field, term }=req.params
+
+  const allowedFields = ['country', 'continent', 'industry']
+
+
+  if (!allowedFields.includes(field)) {
+    return res.status(400).json({message: "Search field not allowed. Please use only 'country', 'continent', 'industry'" })
+  }
+
+
+  filteredData=filteredData.filter(data=>
+    data[field].toLowerCase()===term.toLowerCase()
+  )
+  res.json(filteredData)
 })

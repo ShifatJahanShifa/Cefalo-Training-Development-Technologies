@@ -40,4 +40,21 @@ I must have the functionality such that i can take the user's query param and fi
 convert a string of boolean value into a boolean type , the easiest way to do that is JSON.parse
 
 
-Now, come to the path parameter.
+Now, come to the path parameter. // done
+
+In a database table or collection, if there are a lot of fields and based on the fields and their specific values, user can query. Remeber, resource is one. you need to manage it.
+
+I can override the status code by using status method on response object . 
+
+json method is all small case. When we use json method, under the hood, it sets headers.
+controller is just a function or set of functions. 
+route and controller.
+
+separate the controller from the routes. 
+
+Router acts like a mini express app.
+
+> My follow up task: create a news api too.
+
+> Follow up: if i use app.get( then?) or what is the syntax of app.use((res,res)) actually??
+> search in the details description.
