@@ -36,3 +36,8 @@ HTTP protocol wants us to send data in string not in array.
 With req. pass query param. Grab the query param and store it in a js object. to access the query param and have a js object with them, i can use req.query().
 
 I must have the functionality such that i can take the user's query param and filer data according to it. 
+
+convert a string of boolean value into a boolean type , the easiest way to do that is JSON.parse
+
+
+Now, come to the path parameter.
