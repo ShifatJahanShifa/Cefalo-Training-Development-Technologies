@@ -19,5 +19,7 @@ The cons of an ORM:
 2. it is not performant as RDBMS.
 
 
+Prisma is built on top of typescript. 
+
 ## PostGreSQL
 It is an open-source database.
