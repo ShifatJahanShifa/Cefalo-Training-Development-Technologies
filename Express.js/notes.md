@@ -58,3 +58,8 @@ Router acts like a mini express app.
 
 > Follow up: if i use app.get( then?) or what is the syntax of app.use((res,res)) actually??
 > search in the details description.
+
+#### Extended Express Learning
+method: sendFile(): sends the content of a file.
+
+> explore the difference in the output: res.json() and res(JSON.stringify())  ; need to see

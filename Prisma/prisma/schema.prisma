@@ -4,6 +4,8 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// at first define the prisma client, database, model or enum.
+
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -14,8 +16,80 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// model is atually a table in database
+// a field can have field modifier and attributes
+// modifier is like optional using ? mark. also attributes starts with @
+// byte: when i want to store a large file with its byte info, then i will use it. unsupported("")
+// there are actually three types of relaionship. one to one, one to many, many to many. now i will learn about one to many rel.
+// filed type modifier : ? optional, [] array.
+// instead of using autoincrementing, we can use uuid. it is more common nowadays. it is unique, random and secure.
+// suppose, i need to have different kinds of references in a single table. we need to name the relationship to remove the relationship ambiguity. 
+// to set a field as unique, need to use @unique attribute
+// to update a field automatically when the model is upadted, it is super useful as i don't need to manually update it.
+// block level of attribute.
+
+
 model User {
-  id Int @id @default(autoincrement())
-  name String 
+  id              String            @id @default(uuid())
+  name            String
+  age             Int
+  email           String            @unique
+  role            Role              @default(BASIC)
+  // preferences       Json
+  // Posts       Post[]  // 1 to *. 
+  writtenPosts           Post[]                @relation("writtenPosts")
+  favoritedPosts         Post[]                @relation("favoritePosts")
+  userPreference         userPreferences?      @relation(fields: [userPreferenceId], references: [id])
+  userPreferenceId       String?               @unique
+
+
+
+  // block level attribute
+  @@unique([name,age])  // two user cannot have same name and age
+  @@index([email])    // improves sorting or searching by email performance. actually if we want to do query by an email, in that case, index on email can be beneficial.
+  // uniqueness in email actually helps a lot because i want the design like no two users can have the same email. *** i will use this in my project.
 }
 
+
+
+// demonstrate the one to one relationship between user and userPreferences. for one to one relationship, the relationship can be stored either in the tables.
+// storing the relationship in userPreferences table. 
+
+// 1 to 1
+model userPreferences {
+  id           String  @id @default(uuid())
+  emailUpdates Boolean
+  user User? 
+}
+
+
+// 1 to *
+model Post {
+  id            String     @id @default(uuid())
+  title         String
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  averagerating Float
+  author        User       @relation("writtenPosts", fields: [authorId], references: [id]) // fields are fields from this table which references the fields of the other table. references are those fields from another table.
+  authorId      String
+  favoritedBy   User?      @relation("favoritePosts", fields: [favoritedById], references: [id]) // fields are fields from this table which references the fields of the other table. references are those fields from another table.
+  favoritedById String?
+  categories    Category[]
+  // if i want that the primary key of the table will be a composite key, the use @@id
+  // @@id([title,authorId])    this is a way to have a primary/composite key in a table.
+}
+
+// now move on to * to *
+model Category {
+  id    String      @id @default(uuid())
+  name  String      @unique
+  posts Post[]
+}
+
+
+// enum type
+// i will use this role enum in my actual project
+enum Role {
+  BASIC
+  ADMIN
+}

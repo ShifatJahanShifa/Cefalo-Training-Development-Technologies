@@ -23,3 +23,5 @@ Prisma is built on top of typescript.
 
 ## PostGreSQL
 It is an open-source database.
+
+Migration: we make changes to our databases using migration. client code -> migration -> database.
