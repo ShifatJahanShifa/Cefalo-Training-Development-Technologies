@@ -5,10 +5,13 @@ Purpose: share, plan, experience travel in a collaborative, data-driven way.
 
 Key features: 
 1. Social sharing: users publish detailed travel logs. categories or chunks include: transport, lodging, dining, attractions, metrics(resources)-cost, time, physical effort.
-consideration: i need to maintain these categories so that it can enhance the searching ( all posts with the searched category ). better I will take input based on the category/category wise. basic task.
+consideration: i need to maintain these categories so that it can enhance the searching ( all posts with the searched category ). better I will take input based on the category/category wise.basic task.
+
 2. Wishlist management: crud operation mainly. Personal and group travel wishlist. enriched with geolocation.
+   
 3. Group discovery: 'Your fellow travelers' finding with matching interests or overlapping wishlist. Matching can be done by any parameter. like cost, vacation, wishlist. Actually they want to know my potential. 
 4. Location Services: Integrate external APIs to find nearby hotels, transport options and POIs. On travel nearby interested places suggest korbe.
+   
 5. Proximity Notifications: receive notif when come closer to a destination. Receive alerts when arriving near whishlist locations or meetup radius. 
 
 Audience and user roles:
@@ -38,8 +41,9 @@ Users publish detailed travel logs, categorized by transport, lodging, dining, a
 What I have thought about the requirements are: 
 UI and functionality: 
 ekta form thakbe. jokhon user share experience name ekta button click korbe, tokhon ei form ta open hbe. okhane category kora thkbe. jemon- transport, lodging, dining, attractions, and metrics (cost, time, physical effort). erpor jokhon onno user ra eita dekhbe tara hoyto eksathe merged post dekhte pare abar category headline er under e dekhte pare.  
-ekta filtering thkbe category wise. filtering theke kono point select krle oi point r part tuku shudu dekhabe shb post r jnno. 
-ekhon database kivabe handle korbo ekhane. ?? database e ki shob field thaka mandatory korbo??
+ekta filtering thkbe category wise. filtering theke kono point select krle oi point r part tuku shudu dekhabe shb post r jnno. // better search option
+button duita: share your experience , search
+ekhon database kivabe handle korbo ekhane. ?? database e ki shob field thaka mandatory korbo??  
 well ekbar post share kore felle edit r option o rakha lgbe. 
 ask korbo: picture option ar geo-tagged option rakhbo kina. 
 GitHub: feature/post-create-travel-log
@@ -60,7 +64,7 @@ The users are grouped together for that specific destination.
 
 This forms a dynamic group or interest cluster.
 
-They can then optionally initiate chats, plan trips together, or receive group notifications.
+They can then optionally initiate chats, plan trips together, (or receive group notifications).
 
 Wishlist {
   id: string;
