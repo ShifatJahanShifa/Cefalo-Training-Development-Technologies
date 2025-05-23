@@ -147,3 +147,28 @@ In his article Screaming Architecture, Bob Martin says architectures should tell
 
 > https://profy.dev/article/react-folder-structure
 > https://stackoverflow.com/questions/19041837/difference-between-res-send-and-res-json-in-express-js
+
+
+
+`setup`
+create folder backend.
+npx create-react-app frontend
+cd frontend
+npm install --save typescript @types/react @types/react-dom
+npx tsc --init
+cd backend
+npx tsc --init
+npm install -D typescript ts-node-dev @types/node @types/express
+npx tsc
+to set up prisma--
+npm install prisma --save-dev
+npm install @prisma/client
+npx prisma init
+npx prisma generate
+npx prisma migrate dev --name init   // for migration
+"target": "es2017",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "rootDir": "src"
