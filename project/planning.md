@@ -97,7 +97,7 @@ Examples:
 | **Prisma ORM** | `backend/prisma/`, `backend/models/`          | **Interact with your database** in a type-safe way               |
 
 
-1. Frontend: React + TypeScript
+1. Frontend: React + TypeScript  // 
 📁 frontend/
 
 | Folder/File           | Purpose                                                       |
@@ -111,7 +111,7 @@ Examples:
 | `main.tsx`, `App.tsx` | Entry point and top-level routing                             |
 
 
-2. Backend: Express.js + TypeScript + Prisma ORM
+2. Backend: Express.js + TypeScript + Prisma ORM   // 
 📁 backend/
 
 | Folder/File            | Purpose                                                             |
@@ -124,3 +124,26 @@ Examples:
 | `src/utils/`           | Helper functions (geo calculations, etc.)                           |
 | `prisma/schema.prisma` | Your **data model** definition — generates the DB schema via Prisma |
 | `src/models/`          | Optional: abstracted data access logic using Prisma client          |
+
+
+> Your components, props, and state will have types.
+> PostGIS is a spatial database extender for postgresql.
+> https://www.dhiwise.com/post/how-to-structure-and-organize-react-css-modules  
+> https://medium.com/nerd-for-tech/structuring-react-projects-with-feature-driven-development-%EF%B8%8F-b671ee898145
+
+// css file
+🔍 Recommendation for Your Case:
+Since you're using React + TypeScript, and want a clean, modular project, go with:
+
+✅ CSS Modules + Global index.css
+Local styles: Component.module.css
+
+Global resets and base theme: index.css
+
+This gives you both modularity and clarity.
+
+
+In his article Screaming Architecture, Bob Martin says architectures should tell readers about the system, not the frameworks used. 
+
+> https://profy.dev/article/react-folder-structure
+> https://stackoverflow.com/questions/19041837/difference-between-res-send-and-res-json-in-express-js

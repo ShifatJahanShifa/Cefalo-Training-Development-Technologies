@@ -1,0 +1,1 @@
+console.log(res.json({ message: 'Success', data: [1, 2, 3] }))

@@ -63,3 +63,31 @@ Router acts like a mini express app.
 method: sendFile(): sends the content of a file.
 
 > explore the difference in the output: res.json() and res(JSON.stringify())  ; need to see
+
+### Extra from documentation
+Always be careful when setting the app's main js file or the starting js file.
+There is sth called `express generator.` 
+
+step: 
+1. at first import express
+2. create instance of express and store it in app
+3. define the port
+4. listen on the port or start the server. place it at the last. 
+
+> I have a q about when to use res.send and res.json method
+
+`res.send()` it is a general purpose method. i can use this method when i am sending string, html or object, buffer. based on what type of data i am sending, the `content-type` header is set. 
+There is a tip: 
+when i call res.json(), it internally calls res.send() method with some extra formatting. 
+So, when i need to specifically send json response from an api, i should use this method.
+to set header, i can use res.set() method. 
+
+#### when to use what
+
+| Situation                            | Server Side (Express)           | Client Side (JS / fetch)            |
+| ------------------------------------ | ------------------------------- | ----------------------------------- |
+| REST API sending object              | `res.json({ ... })`             | `await res.json()`                  |
+| Sending plain HTML or text           | `res.send('<h1>Welcome</h1>')`  | `await res.text()`                  |
+| Sending a pre-serialized JSON string | `res.send(JSON.stringify(...))` | `await res.text()` + `JSON.parse()` |
+
+> visit the link: https://stackoverflow.com/questions/19041837/difference-between-res-send-and-res-json-in-express-js 

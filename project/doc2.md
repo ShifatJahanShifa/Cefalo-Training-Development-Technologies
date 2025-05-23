@@ -243,4 +243,8 @@ theme pahar, shomudro,
 region uttaranchol,
 
 
+// project necessaries: 
+
+PostGIS is a spatial database extender for postgresql.
+
 
