@@ -172,3 +172,9 @@ npx prisma migrate dev --name init   // for migration
     "esModuleInterop": true,
     "outDir": "dist",
     "rootDir": "src"
+
+
+// auth 
+npm install bcrypt @types/bcrypt
+npm install jsonwebtoken @types/jsonwebtoken
+dotenv
