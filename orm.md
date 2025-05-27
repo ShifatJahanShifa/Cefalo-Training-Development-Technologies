@@ -33,8 +33,6 @@ Both have CLI. Drizzle has Drizzle kit. Prisma has CLI but that does not have a 
 Drizzle is much more difficult to set up than prisma. Because the flexibility drizzle gives us to use database driver behind the scene, it requires much works while setup.
 On the otherhand, prisma setup easier in comparison with drizzle.
 
-6. Migration
-In Prisma, migration foperation is easier than drizzle.
 
 7. Schema definition: 
 We define schema in a `.prisma` extension file. Whereas, in drizzle we write schema in .ts file. For the relation among tables, prisma has the edge.
@@ -43,7 +41,7 @@ We define schema in a `.prisma` extension file. Whereas, in drizzle we write sch
 Insert operation is as much as similar. But when i am performing joins operation, Prisma has much benefit than Drizzle. Benefits include:
 
 | Feature               | Prisma                                | Drizzle                         |
-| --------------------- | ------------------------------------- | ------------------------------- |
+| --------------------  | ------------------------------------- | ------------------------------- |
 | 🔄 Join abstraction   | ✅ Automatic via `include`             | ❌ Manual joins with `.leftJoin` |
 | ✍️ Schema relations   | ✅ Declarative in Prisma schema        | ⚠️ Manual in table definitions  |
 | 🧠 Query simplicity   | ✅ Very high                           | ❌ Verbose for joins             |

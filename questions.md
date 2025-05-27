@@ -1,0 +1,1 @@
+> what is nodemon index.js and node index.js npm start??
