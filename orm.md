@@ -1,3 +1,5 @@
+# Drizzle vs Prisma
+
 Drizzle ORM: 
 It offers type safe object relational mapping with our fav relational databases. We know how much complex a sql query can be. To save us from this complexity, there are many libraries over the decade in our fav OOP languages to hide this complexity with SQL. This technique is called object relational mapping. It was great but it has some problems. It may bring unnecessary performance overhead. Also it can cause leaky abstractions because the developers don't know how the underlying SQL code works.
 
@@ -13,15 +15,15 @@ avg latency: Drizzle-30.3ms, Prisma-425ms
 avg req/sec: Drizzle-6.0k  , Prisma-2.4k
 avg CPU load:Drizzle-76.4% , Prisma-94.8%
 
-so, drizzle is faster than prisma. This was built keeping the "speed" in mind. While Prisma was built keeping "ease" in mind. 
+   so, drizzle is faster than prisma. This was built keeping the "speed" in mind. While Prisma was built keeping "ease" in mind. 
 
 2. Underlying databases: 
 Drizzle: MySQL, SQLite, Postgre ans some other.
 Prisma: MySQL, Postgre and some other.
 
-Drizzle supports wider databases than prisma. Drizzle gives us option for database driver whereas Prisma uses its own driver.
+   Drizzle supports wider databases than prisma. Drizzle gives us option for database driver whereas Prisma uses its own driver.
 
-So, both work for several databases but drizzle gives us some customization option like behind the scene which driver i want to use.
+   So, both work for several databases but drizzle gives us some customization option like behind the scene which driver i want to use.
 
 3. Studio
 Both have studio version.
@@ -49,7 +51,7 @@ Insert operation is as much as similar. But when i am performing joins operation
 | 🔐 Type-safety        | ✅ Auto-generated                      | ✅ Manually structured           |
 
 
-Q & A
+## Q & A
 What are the main differences in performance between Prisma and Drizzle?
 -
 Drizzle is generally faster than Prisma due to its lightweight design, which sends fewer database queries and does less internal processing. Prisma, on the other hand, incorporates more complex functionality and may send multiple queries, resulting in slower performance in certain cases.
@@ -88,7 +90,7 @@ No, Drizzle is more suited for developers with a solid understanding of SQL beca
 9. While Drizzle excels in flexibility and raw performance, Prisma is a better option for those who prioritize ease of use and quick setup.
 
 
-Prisma is easy to set up, beginner-friendly, and well-documented, but it sacrifices performance, especially in serverless environments. Drizzle, on the other hand, offers better performance and flexibility, especially for complex projects, but requires more boilerplate and SQL knowledge. The choice between the two depends on your project’s needs—Prisma is ideal for ease of use, while Drizzle excels in speed and control for advanced users.
+Prisma is easy to set up, beginner-friendly, and well-documented, but it sacrifices performance, especially in serverless environments. Drizzle, on the other hand, offers better performance and flexibility, especially for complex projects, but requires more boilerplate and SQL knowledge. The choice between the two depends on the project’s needs—Prisma is ideal for ease of use, while Drizzle excels in speed and control for advanced users.
 
 
 
