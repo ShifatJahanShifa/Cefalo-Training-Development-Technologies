@@ -1,0 +1,1 @@
+1. What is the difference among ISC, MIT or Apache-2.0 license. 
