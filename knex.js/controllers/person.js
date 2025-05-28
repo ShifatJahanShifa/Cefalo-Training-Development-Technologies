@@ -1,9 +1,19 @@
+const objs=require('../service/person.js')
+
 class PersonController{       // responsible for delegating task
-    createPerson(req,res) {
+    async createPerson(req,res) {
         //
-        await ('gg')
+        try 
+        {
+            const id=await objs.createPerson(req.body)
+            res.status(201).json({msg: 'user created'})
+        }
+        catch(error)
+        {
+            console.error(error)
+        }
     }
 }
 
-let obj = new PersonController();
-export default obj;
+let objp = new PersonController();
+module.exports= objp;  // can i do it in the previous line

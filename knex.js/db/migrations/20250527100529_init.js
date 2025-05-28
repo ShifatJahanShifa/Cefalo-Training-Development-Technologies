@@ -6,6 +6,8 @@ exports.up = function(knex) {
   return knex.schema.createTable('person', table => {
     table.increments('id')
     table.string('email')
+    table.string('fn')
+    table.string('ln')
     table.timestamps(true, true)
   })
 };

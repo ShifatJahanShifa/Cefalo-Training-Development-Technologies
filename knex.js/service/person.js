@@ -1,9 +1,13 @@
+const obj=require('../DAO/person.js')
+
 class PersonService{       // responsible for delegating task
-    createPerson(req,res) {
+    createPerson(personObj) {
         //
-        await ('gg')
+        const { fn,ln,email }=personObj
+        // console.log('person..',fn,ln,e)
+        return obj.createPerson(fn,ln,email)
     }
 }
 
-let obj = new PersonService();
-export default obj;
+let objs = new PersonService();
+module.exports=objs;

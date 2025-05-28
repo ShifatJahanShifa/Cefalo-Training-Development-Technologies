@@ -1,5 +1,5 @@
-import express from 'express'
-import { apiRouter } from './ruotes/route'
+const express=require('express')
+const apiRouter=require('./routes/route.js')
 const PORT=4000
 const app=express()
 
