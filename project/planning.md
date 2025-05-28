@@ -178,3 +178,324 @@ npx prisma migrate dev --name init   // for migration
 npm install bcrypt @types/bcrypt
 npm install jsonwebtoken @types/jsonwebtoken
 dotenv
+i need to validate data**** refresh token**
+
+
+
+
+<!-- --------------------------------------------------------- feature/user-auth -->
+
+✅ Feature: user-auth
+🔧 Responsibilities:
+User registration & login
+
+JWT generation & validation
+
+Role management (in token & middleware)
+
+Token refresh/revoke (optional)
+
+Logout
+
+
+APIs:
+
+| Method | Route            | Description                               |
+| ------ | ---------------- | ----------------------------------------- |
+| `POST` | `/auth/register` | Register a new user (with default role)   |
+| `POST` | `/auth/login`    | Authenticate and return token with role   |
+| `POST` | `/auth/logout`   | (If using sessions/cookies)               |
+| `GET`  | `/user/me`       | Return logged-in user info including role |
+
+| Method | Endpoint            | Description                              | Access        |
+| ------ | ------------------- | ---------------------------------------- | ------------- |
+| POST   | `/auth/register`    | Register a new user                      | Public        |
+| POST   | `/auth/login`       | Login and receive token                  | Public        |
+| POST   | `/auth/logout`      | Logout user                              | Authenticated |
+| GET    | `/user/me`          | Get authenticated user info (w/ role)    | Authenticated |
+| PUT    | `/auth/update-role` | (Optional) Update user role (admin only) | Admin Only    |
+
+
+
+folder structure: 01
+/user-auth
+├── controllers
+│   └── auth.controller.js
+├── routes
+│   └── auth.routes.js
+├── middlewares
+│   ├── auth.middleware.js       // e.g., verifyToken
+│   └── role.middleware.js       // new: role-based access check middleware
+├── utils
+│   ├── jwt.js                   // generate/access JWTs
+│   └── role.utils.js            // optional: helper functions for roles
+├── models
+│   └── user.model.js            // include email, password, role
+├── validators
+│   └── auth.validator.js
+├── constants
+│   └── roles.js                 // export ['traveler', 'explorer', 'admin']
+└── index.js                     // entry point for this module
+
+
+
+folder structure: 02
+
+/user-auth
+├── controllers
+│   └── auth.controller.js
+├── routes
+│   └── auth.routes.js
+├── middlewares
+│   ├── auth.middleware.js        // verifyToken
+│   └── role.middleware.js        // allowRoles([...])
+├── models
+│   └── user.model.js             // email, password, role, name, etc.
+├── utils
+│   └── jwt.js                    // generateToken, verifyToken
+├── validators
+│   └── auth.validator.js
+├── constants
+│   └── roles.js                  // ['explorer', 'traveler', 'admin']
+└── index.js                      // export routes/middlewares
+
+
+Why this is a good design?
+Auth & role validation are security concerns, closely related — so grouping them in the same feature module makes logical sense.
+
+Role validation is just another layer of middleware after verifying the token.
+
+role.middleware.js can be reused anywhere in your app to protect routes based on roles.
+
+Keeps related code (roles, tokens, validation) in one place → easier to maintain.
+
+
+
+
+
+//-------------------------------------------------------- user profile----------------------
+
+✅ Feature: user-profile
+🔧 Responsibilities:
+Update personal info (name, bio, image, etc.)
+
+View/edit profile
+
+View other users’ public profiles (optional)
+
+
+
+APIs:
+
+| Method  | Route            | Description                         |
+| ------- | ---------------- | ----------------------------------- |
+| `GET`   | `/user/:id`      | View public profile by ID           |
+| `PUT`   | `/user/update`   | Update own profile                  |
+| `PATCH` | `/user/password` | (Optional) Change password securely |
+
+🔐 All of these require auth.middleware.js from user-auth
+
+| Method | Endpoint           | Description                       | Access        |
+| ------ | ------------------ | --------------------------------- | ------------- |
+| GET    | `/profile/me`      | Get current user's profile        | Authenticated |
+| PUT    | `/profile/update`  | Update profile info               | Authenticated |
+| GET    | `/profile/:userId` | Get another user’s public profile | Optional      |
+
+
+
+
+/user-profile
+├── controllers
+│   └── profile.controller.js
+├── routes
+│   └── profile.routes.js
+├── middlewares
+│   └── validateProfile.middleware.js     // optional validations
+├── validators
+│   └── profile.validator.js
+└── index.js
+
+
+/user-profile
+├── controllers
+│   └── profile.controller.js
+├── routes
+│   └── profile.routes.js
+├── middlewares
+│   └── validateUser.middleware.js   // Check ownership, optional
+├── validators
+│   └── profile.validator.js
+└── index.js
+
+
+//----------------------------------------- publish experience------------------------------
+
+✅ Feature: publish-experience
+🔧 Responsibilities:
+Create and manage travel posts
+
+Each post includes sections: transport, hotel, food, places, personal metrics (cost, duration, effort)
+
+Upload images and geo-tracks
+
+View travel experiences (individual or list)
+
+/publish-experience
+├── controllers
+│   └── experience.controller.js       // business logic
+├── routes
+│   └── experience.routes.js           // route definitions
+├── models
+│   └── experience.model.js            // Mongoose/ORM schema
+├── middlewares
+│   └── upload.middleware.js           // handle image/geo-track uploads
+├── validators
+│   └── experience.validator.js        // input validation
+├── utils
+│   └── parser.js                      // optional: geo-track parsing, etc.
+└── index.js                           // export routes/middleware
+
+
+| Method | Endpoint                 | Description                              | Access        |
+| ------ | ------------------------ | ---------------------------------------- | ------------- |
+| POST   | `/experience`            | Create a new travel experience           | Authenticated |
+| GET    | `/experience`            | Get all published experiences            | Public        |
+| GET    | `/experience/:id`        | Get a specific experience by ID          | Public        |
+| PUT    | `/experience/:id`        | Update an experience (if owner)          | Authenticated |
+| DELETE | `/experience/:id`        | Delete an experience (if owner or admin) | Authenticated |
+| POST   | `/experience/:id/upload` | Upload images or geo-tracks for a post   | Authenticated |
+
+
+🚀 Optional Middleware/Utilities
+upload.middleware.js: Use multer or cloudinary to handle uploads.
+
+parser.js: Parse and store geo-track files (e.g., GPX, KML) if needed.
+
+{
+  title: String,
+  description: String,
+  transport: String,
+  hotel: String,
+  food: String,
+  placesToVisit: [String],
+  metrics: {
+    cost: Number,
+    duration: String,
+    effort: String
+  },
+  geoTrackUrl: String,         // stored or linked
+  images: [String],            // image URLs or file refs
+  location: {
+    lat: Number,
+    lng: Number
+  },
+  author: ObjectId (User),
+  createdAt: Date,
+  updatedAt: Date
+}
+
+
+| Query Param | Type     | Description                                       |
+| ----------- | -------- | ------------------------------------------------- |
+| `category`  | String   | Filter by travel category (`food`, `hotel`, etc.) |
+| `region`    | String   | Filter by region or location name (e.g., "Asia")  |
+| `startDate` | Date     | Filter posts from a specific start date           |
+| `endDate`   | Date     | Filter posts up to a specific end date            |
+| `author`    | ObjectId | Filter by user ID                                 |
+| `search`    | String   | Free-text search in title, description, etc.      |
+
+
+
+//--------------------------------------------- wishlist management--------------------------------------------
+
+the scenario is like. i can go for discover button. i will search for place of interest. The POI will appear in frontend. They see search results with photos, ratings, descriptions, etc. i can see the map location also these sort of description. now tell me,
+from where i will see this sort of description?? There will be an option somewhere liek add to wishlist. when i will click the option, a modal of form will appear. 
+from gpt: 
+
+📋 Step 2: Select/Create Wishlist
+A modal/dialog appears:
+
+Select an existing wishlist (e.g., “Japan Trip 2025”)
+
+Or create a new one (e.g., “Dream Mountains”)
+
+but i am not still clear about this feature. 
+
+myb there will be an option for select group or theme. i can also add note. I will generate a public link for sharing. 
+
+gpt suggests to use opentripmap, google places, rapidapi key.
+
+
+APIS:
+
+📁 Create & Manage Wishlist
+POST /wishlist
+➤ Create a new wishlist (with title, theme, optional region)
+
+GET /wishlist
+➤ Get all wishlists of the current user
+
+GET /wishlist/:id
+➤ Get details of a specific wishlist (POIs, notes, etc.)
+
+PUT /wishlist/:id
+➤ Update wishlist info (title, theme, grouped data)
+
+DELETE /wishlist/:id
+➤ Delete a wishlist
+
+📍 Manage POIs in Wishlist
+POST /wishlist/:id/poi
+➤ Add a POI (Point of Interest) to a wishlist
+
+PUT /wishlist/:id/poi/:poiId
+➤ Update notes or details of a POI
+
+DELETE /wishlist/:id/poi/:poiId
+➤ Remove a POI from a wishlist
+
+
+Sharing Wishlist
+POST /wishlist/:id/share
+➤ Generate or update public/shared link
+
+GET /shared/wishlist/:shareId
+➤ Publicly viewable wishlist via shared link
+
+POST /wishlist/:id/share/user
+➤ Share with a specific user (via user ID or email)
+
+/wishlist-management
+├── controllers
+│   └── wishlist.controller.js          # Main logic for wishlist & POIs
+├── routes
+│   └── wishlist.routes.js              # Express routes
+├── models
+│   └── wishlist.model.js               # Wishlist + nested POIs schema
+├── services
+│   └── share.service.js                # Logic for sharing/public links
+├── middlewares
+│   └── wishlist.middleware.js          # Optional access control or validation
+├── validators
+│   └── wishlist.validator.js           # Request validation schemas
+├── utils
+│   └── generateShareLink.js            # Utility for creating unique share IDs
+└── index.js                            # Exports router, connects module
+
+
+{
+  user: ObjectId,           // owner
+  title: String,
+  theme: String,
+  region: String,
+  pois: [
+    {
+      name: String,
+      location: { lat: Number, lng: Number },
+      notes: String,
+      category: String,
+    }
+  ],
+  sharedWith: [ObjectId],   // user IDs
+  publicShareId: String     // for shareable links
+}
