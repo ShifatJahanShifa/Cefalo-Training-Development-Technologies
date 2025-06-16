@@ -1,4 +1,4 @@
-const obj=require('../DAO/person.js')
+const obj=require('../dao/person.js')
 
 class PersonService{       // responsible for delegating task
     createPerson(personObj) {

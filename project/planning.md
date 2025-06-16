@@ -499,3 +499,70 @@ POST /wishlist/:id/share/user
   sharedWith: [ObjectId],   // user IDs
   publicShareId: String     // for shareable links
 }
+
+
+
+<!--    req obj     -->
+
+| Property              | Description                                                                                                     |
+| --------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `req.body`            | The parsed request body (e.g., JSON or form data) — requires middleware like `express.json()` or `body-parser`. |
+| `req.params`          | Route parameters (e.g., `/user/:id`) — accessed like `req.params.id`.                                           |
+| `req.query`           | Query string parameters (e.g., `/search?q=term`) — accessed like `req.query.q`.                                 |
+| `req.headers`         | An object containing the request headers.                                                                       |
+| `req.cookies`         | Cookies sent by the client — requires `cookie-parser` middleware.                                               |
+| `req.signedCookies`   | Signed cookies, if you're using `cookie-parser` with a secret.                                                  |
+| `req.method`          | HTTP method used (GET, POST, etc.).                                                                             |
+| `req.url`             | Full request URL (without host).                                                                                |
+| `req.originalUrl`     | The original request URL, even after any internal redirections.                                                 |
+| `req.path`            | The route path, e.g., `/users/123`.                                                                             |
+| `req.ip`              | The IP address of the client.                                                                                   |
+| `req.protocol`        | `http` or `https`.                                                                                              |
+| `req.secure`          | Boolean indicating if the request was via HTTPS.                                                                |
+| `req.get(headerName)` | Retrieves a specific header (e.g., `req.get('Authorization')`).                                                 |
+
+
+## Core response method: 
+
+| Method                  | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| `res.status(code)`      | Sets the HTTP status code.                                 |
+| `res.send(body)`        | Sends a response body (text, HTML, object, etc.).          |
+| `res.json(obj)`         | Sends a JSON response (automatically sets `Content-Type`). |
+| `res.end()`             | Ends the response without sending any data.                |
+| `res.redirect(url)`     | Redirects to another URL.                                  |
+| `res.set(field, value)` | Sets a response header.                                    |
+| `res.get(field)`        | Returns the value of a response header.                    |
+
+
+## Cookie method:
+
+| Method                             | Description      |
+| ---------------------------------- | ---------------- |
+| `res.cookie(name, value, options)` | Sets a cookie.   |
+| `res.clearCookie(name, options)`   | Clears a cookie. |
+
+
+## file and download methods
+
+| Method                       | Description                                         |
+| ---------------------------- | --------------------------------------------------- |
+| `res.sendFile(path)`         | Sends a file as response.                           |
+| `res.download(path)`         | Sends a file for download.                          |
+| `res.attachment([filename])` | Sets the `Content-Disposition` header for download. |
+
+
+## rendering views
+
+| Method                     | Description                        |
+| -------------------------- | ---------------------------------- |
+| `res.render(view, locals)` | Renders a view template with data. |
+
+
+## other useful methods
+| Method               | Description                                         |
+| -------------------- | --------------------------------------------------- |
+| `res.type(type)`     | Sets the `Content-Type` header.                     |
+| `res.format(object)` | Sends different responses based on `Accept` header. |
+| `res.location(path)` | Sets the `Location` header.                         |
+| `res.links(links)`   | Sets the `Link` header.                             |

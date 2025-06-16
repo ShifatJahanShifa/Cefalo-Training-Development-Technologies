@@ -1,4 +1,4 @@
-const db=require('../db/db.js')
+const db=require('../db/db_adapters/db.js')
 
 class PersonDAO{       // responsible for delegating task
     async createPerson(fn, ln, e) {
